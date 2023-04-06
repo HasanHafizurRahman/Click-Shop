@@ -1,7 +1,8 @@
 import { AppBar, Box, Toolbar, Typography, styled } from "@mui/material";
 import React from "react";
-import logo from "../../images/clickshop_generated-removebg-preview.png";
 import Search from "./Search";
+import CustomButton from "./CustomButton";
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled(AppBar)`
   background: #2874f0;
@@ -10,12 +11,15 @@ const StyledHeader = styled(AppBar)`
 const Component = styled(Box)`
   margin-left: 12%;
 `;
+const CustomButtonWrapper = styled(Box)`
+  margin-left: 5%;
+`;
 
 const Header = () => {
   return (
     <div>
       <StyledHeader>
-        <Toolbar>
+        <Toolbar style={{ minHeight: 55 }}>
           <Component>
             <Typography
               sx={{
@@ -27,8 +31,11 @@ const Header = () => {
               ClickShop
             </Typography>
           </Component>
-          {/* </Box> */}
+
           <Search />
+          <CustomButtonWrapper>
+            <CustomButton />
+          </CustomButtonWrapper>
         </Toolbar>
       </StyledHeader>
     </div>
