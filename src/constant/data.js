@@ -12,7 +12,7 @@ export const navData = [
     text: "Mobile",
   },
   {
-    url: "https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100",
+    url: "https://i.ibb.co/kXQLYts/pngegg.png",
     text: "Fashion",
   },
   {
@@ -40,18 +40,18 @@ export const navData = [
 export const bannerData = [
   {
     id: 1,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/d117a62eb5fbb8e1.jpg?q=50",
+    url: "https://i.ibb.co/7C91NTw/vecteezy-sale-banner-design-with-discount-flash-sale-vector-template-10482342.jpg",
   },
   {
     id: 2,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/57267a180af306fe.jpg?q=50",
+    url: "https://i.ibb.co/V3GC9YY/954-generated.jpg",
   },
   {
     id: 3,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/ae9966569097a8b7.jpg?q=50",
+    url: "https://i.ibb.co/710SL4s/vecteezy-sale-banner-design-with-discount-flash-sale-vector-template-10481731.jpg",
   },
   {
     id: 4,
-    url: "https://rukminim1.flixcart.com/flap/3376/560/image/f6202f13b6f89b03.jpg?q=50",
+    url: "https://i.ibb.co/HdHBQJV/vecteezy-paper-art-shopping-online-on-smartphone-and-new-buy-sale-3690397.jpg",
   },
 ];

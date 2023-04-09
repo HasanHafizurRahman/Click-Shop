@@ -25,7 +25,11 @@ const Navbar = () => {
     <Containar>
       {navData.map((data) => (
         <Component>
-          <img src={data.url} alt="imageurl" style={{ width: 64 }} />
+          <img
+            src={data.url}
+            alt="imageurl"
+            style={{ width: 64, height: 64 }}
+          />
           <Text>{data.text}</Text>
         </Component>
       ))}
