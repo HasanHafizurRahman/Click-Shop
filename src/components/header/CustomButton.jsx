@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { ShoppingCart } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import LoginDialog from "../login/LoginDialog";
 
 const Wrapper = styled(Box)`
   display: flex;
@@ -20,9 +21,15 @@ const Container = styled(Box)`
 `;
 
 const CustomButton = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
   return (
     <Wrapper>
       <Button
+        onClick={handleOpen}
         style={{
           color: "#2874f0",
           backgroundColor: "white",
@@ -43,6 +50,7 @@ const CustomButton = () => {
         <ShoppingCart />
         <Typography>Cart</Typography>
       </Container>
+      <LoginDialog open={open} setOpen={setOpen} />
     </Wrapper>
   );
 };

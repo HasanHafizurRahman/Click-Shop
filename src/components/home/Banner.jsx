@@ -33,18 +33,18 @@ const Banner = () => {
       //   swipeable={false}
       //   draggable={false}
       responsive={responsive}
-      //   infinite={true}
-      //   autoPlay={true}
-      //   autoPlaySpeed={4000}
-      //   keyBoardControl={true}
-      //   showDots={false}
-      //   slidesToSlide={1}
+      infinite={true}
+      autoPlay={true}
+      autoPlaySpeed={4000}
+      keyBoardControl={true}
+      showDots={false}
+      slidesToSlide={1}
       containerClass="carousel-container"
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
     >
       {bannerData.map((image) => (
-        <Image src={image.url} alt="banner" id={image.id} />
+        <Image src={image.url} alt="banner" id={image.id} loading="lazy" />
       ))}
     </Carousel>
   );
