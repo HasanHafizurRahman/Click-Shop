@@ -6,8 +6,9 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import React, { useState } from "react";
-import { authenticateUser } from "../../service/api";
+import React, { useState, useContext } from "react";
+import { authenticateLogin, authenticateUser } from "../../service/api";
+import { DataContext } from "../../context/DataProvider";
 
 // Initial STATEs
 const initialAccount = {
@@ -24,11 +25,15 @@ const initialAccount = {
 };
 
 const initialRegister = {
-  firstname: "",
-  lastname: "",
+  username: "",
   email: "",
   password: "",
   phone: "",
+};
+
+const initialLogin = {
+  username: "",
+  password: "",
 };
 
 // styled components
@@ -85,16 +90,19 @@ const terms = { fontSize: "12px", color: "#878787" };
 const paragraph = { marginTop: "20px", color: "white" };
 
 const LoginDialog = ({ open, setOpen }) => {
-  const [account, setAccount] = useState(initialAccount.login);
+  const [account, toggleAccount] = useState(initialAccount.login);
   const [register, setRegister] = useState(initialRegister);
 
+  const [login, setLogin] = useState(initialLogin);
+  const { setAccount } = useContext(DataContext);
+
   // click event handlers
-  const handleClose = () => {
+  function handleClose() {
     setOpen(false);
-    setAccount(initialAccount.login);
-  };
+    toggleAccount(initialAccount.login);
+  }
   const handleSignup = () => {
-    setAccount(initialAccount.signup);
+    toggleAccount(initialAccount.signup);
   };
 
   const handlechange = (e) => {
@@ -102,7 +110,19 @@ const LoginDialog = ({ open, setOpen }) => {
   };
 
   const handleRegisterUser = async () => {
-    await authenticateUser(register);
+    let response = await authenticateUser(register);
+    if (!response) return;
+    handleClose();
+    // setAccount(register.username.substring(0, 5));
+    setAccount(register.username);
+  };
+
+  const onValueChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
+  };
+
+  const loginUser = async () => {
+    let response = await authenticateLogin(login);
   };
 
   // jsx
@@ -124,11 +144,15 @@ const LoginDialog = ({ open, setOpen }) => {
             <Wrapper>
               <TextField
                 variant="standard"
+                onChange={(e) => onValueChange(e)}
+                name="username"
                 label="Enter your Email/Mobile Number"
               />
               <TextField
                 variant="standard"
-                label="Enter your Email/Mobile Number"
+                onChange={(e) => onValueChange(e)}
+                name="password"
+                label="Enter your password"
               />
               <Typography sx={terms}>
                 By clicking, you agree to our term's and conditions!
@@ -142,7 +166,7 @@ const LoginDialog = ({ open, setOpen }) => {
             </Wrapper>
           ) : (
             <Wrapper>
-              <TextField
+              {/* <TextField
                 onChange={(e) => handlechange(e)}
                 variant="standard"
                 name="firstname"
@@ -153,8 +177,13 @@ const LoginDialog = ({ open, setOpen }) => {
                 variant="standard"
                 name="lastname"
                 label="Last Name"
+              /> */}
+              <TextField
+                onChange={(e) => handlechange(e)}
+                variant="standard"
+                name="username"
+                label="Enter Your User Name"
               />
-              {/* <TextField variant="standard" label="Enter Your User Name" /> */}
               <TextField
                 onChange={(e) => handlechange(e)}
                 variant="standard"
