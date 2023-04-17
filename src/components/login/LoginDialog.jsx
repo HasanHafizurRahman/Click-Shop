@@ -123,6 +123,11 @@ const LoginDialog = ({ open, setOpen }) => {
 
   const loginUser = async () => {
     let response = await authenticateLogin(login);
+    console.log(response);
+    if (response.status === 200) {
+      handleClose();
+      setAccount(login.username);
+    }
   };
 
   // jsx
@@ -146,7 +151,7 @@ const LoginDialog = ({ open, setOpen }) => {
                 variant="standard"
                 onChange={(e) => onValueChange(e)}
                 name="username"
-                label="Enter your Email/Mobile Number"
+                label="Enter your Username"
               />
               <TextField
                 variant="standard"
@@ -157,7 +162,9 @@ const LoginDialog = ({ open, setOpen }) => {
               <Typography sx={terms}>
                 By clicking, you agree to our term's and conditions!
               </Typography>
-              <Button style={LoginButton}>Login</Button>
+              <Button onClick={() => loginUser()} style={LoginButton}>
+                Login
+              </Button>
               <Typography sx={{ textAlign: "center" }}>OR</Typography>
               <Button style={OtpButton}>Request OTP</Button>
               <Typography onClick={() => handleSignup()} sx={RegisterLink}>
