@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts as listProducts } from "../../redux/actions/productAction";
+import Slide from "./Slide";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,36 @@ const Home = () => {
       <Navbar />
       <Box sx={{ padding: "10px", background: "#F2F2F2" }}>
         <Banner />
+        <Slide
+          data={products}
+          title="Deals of the Day"
+          timer={true}
+          multi={true}
+        />
+        <Slide
+          data={products}
+          title="Discounts for You"
+          timer={false}
+          multi={true}
+        />
+        <Slide
+          data={products}
+          title="Suggested Items"
+          timer={false}
+          multi={true}
+        />
+        <Slide
+          data={products}
+          title="Top Selection"
+          timer={false}
+          multi={true}
+        />
+        <Slide
+          data={products}
+          title="Recommended Items"
+          timer={false}
+          multi={true}
+        />
       </Box>
     </>
   );
