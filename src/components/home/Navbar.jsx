@@ -3,37 +3,37 @@ import React from "react";
 import { navData } from "../../constant/data";
 import styled from "@emotion/styled";
 
-const Containar = styled(Box)`
-  display: flex;
-  margin: 55px 130px 0 130px;
-  justify-content: space-between;
-`;
+const Component = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  margin: "55px 130px 0 130px !important",
+  overflowX: "overlay",
+  // [theme.breakpoints.down("lg")]: {
+  //   margin: "0px",
+  // },
+}));
 
-const Component = styled(Box)`
+const Container = styled(Box)`
   padding: 12px 8px;
   text-align: center;
 `;
 
 const Text = styled(Typography)`
+  font-size: 14px;
   font-weight: 600;
-  font-size: 13px;
   font-family: inherit;
 `;
 
 const Navbar = () => {
   return (
-    <Containar>
-      {navData.map((data) => (
-        <Component>
-          <img
-            src={data.url}
-            alt="imageurl"
-            style={{ width: 64, height: 64 }}
-          />
-          <Text>{data.text}</Text>
-        </Component>
+    <Component>
+      {navData.map((temp) => (
+        <Container>
+          <img src={temp.url} style={{ width: 64 }} />
+          <Text>{temp.text}</Text>
+        </Container>
       ))}
-    </Containar>
+    </Component>
   );
 };
 

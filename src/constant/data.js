@@ -55,3 +55,9 @@ export const bannerData = [
     url: "https://i.ibb.co/HdHBQJV/vecteezy-paper-art-shopping-online-on-smartphone-and-new-buy-sale-3690397.jpg",
   },
 ];
+
+export const imageUrl = [
+  "https://th.bing.com/th/id/OIP.RWHRhLS6dNTCikk6rSZ9nQHaEK?pid=ImgDet&rs=1",
+  "https://th.bing.com/th/id/OIP.6lcAHc8qpp3nVmXGTkAzMgHaE8?pid=ImgDet&rs=1",
+  "https://th.bing.com/th/id/OIP.xsprrPm3qQHkl2VlR1h6TAHaDn?pid=ImgDet&rs=1",
+];
